@@ -1,0 +1,6 @@
+<select  class="selectpicker" #multiselector *ngIf="config.ismultiselect === true" multiple>
+  <option *ngFor="let value of source " [value]="value">{{ value }}</option>
+</select>
+<select class="selectpicker" #multiselector *ngIf="config.ismultiselect === false" multiple data-max-options="1">
+  <option *ngFor="let value of source " [value]="value">{{ value }}</option>
+</select>

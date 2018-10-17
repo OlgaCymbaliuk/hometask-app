@@ -1,0 +1,22 @@
+<div class="container mt-2">
+  <div class="card">
+    <div class="d-flex flex-row flex-wrap">
+      <img class="img-thumbnail" style="width:250px;height:200px" *ngFor=" let image of (current$ | async)?.media" [src]="image" alt="Card image cap">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{(current$ | async)?.name}}</h5>
+      <p class="card-text">Put here the description of {{(current$ | async)?.name}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <address><strong>Address: {{(current$ | async)?.fullAddress}}</strong></address>
+      </li>
+      <li class="list-group-item" *ngFor=" let url of (current$ | async)?.urls">
+        <a [href]="url" class="card-link">{{url}}</a>
+      </li>
+    </ul>
+    <div class="card-body">
+      <button (click)="goBack()">go to main </button>
+    </div>
+  </div>
+</div>
